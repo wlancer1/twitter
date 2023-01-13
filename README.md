@@ -1,4 +1,4 @@
 # 安装
-ya0rn install
+yarn install
 # 启动
 yarn start
