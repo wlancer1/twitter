@@ -1,0 +1,23 @@
+{
+  "private": true,
+  "author": "王誉皓 <294634047@qq.com>",
+  "scripts": {
+    "dev": "umi dev",
+    "build": "umi build",
+    "postinstall": "umi setup",
+    "setup": "umi setup",
+    "start": "npm run dev"
+  },
+  "dependencies": {
+    "@react-vant/icons": "^0.0.10",
+    "postcss-px-to-viewport": "^1.1.1",
+    "react-vant": "^3.1.3",
+    "umi": "^4.0.44"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "@umijs/plugins": "^4.0.44",
+    "typescript": "^4.1.2"
+  }
+}
