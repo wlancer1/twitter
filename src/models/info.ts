@@ -15,7 +15,61 @@ export default () => {
     timeStamp: 123,
     owner:'admin'
   },
-  
+  {
+    id:'0',
+    content: 'test',
+    time:'2012.3.15',
+    timeStamp: 123,
+    owner:'admin'
+  },{
+    id:'0',
+    content: 'test',
+    time:'2012.3.15',
+    timeStamp: 123,
+    owner:'admin'
+  },{
+    id:'0',
+    content: 'test',
+    time:'2012.3.15',
+    timeStamp: 123,
+    owner:'admin'
+  },{
+    id:'0',
+    content: 'test',
+    time:'2012.3.15',
+    timeStamp: 123,
+    owner:'admin'
+  },{
+    id:'0',
+    content: 'test',
+    time:'2012.3.15',
+    timeStamp: 123,
+    owner:'admin'
+  },{
+    id:'0',
+    content: 'test',
+    time:'2012.3.15',
+    timeStamp: 123,
+    owner:'admin'
+  },{
+    id:'0',
+    content: 'test',
+    time:'2012.3.15',
+    timeStamp: 123,
+    owner:'admin'
+  },{
+    id:'0',
+    content: 'test',
+    time:'2012.3.15',
+    timeStamp: 123,
+    owner:'admin'
+  },{
+    id:'0',
+    content: 'test',
+    time:'2012.3.15',
+    timeStamp: 123,
+    owner:'admin'
+  },
 ]);
   const Add = (props: infoDTO, callback: Function) => {
         setInfoList([props,...infoList])
