@@ -25,10 +25,12 @@ const List: React.FC<{}> = props => {
   }
   useEffect(() => {
     initData();
-  }, [])
+  }, [infoList])
   const initData = () => {
     if (infoList.length <= pageSize) {
       setFinished(true);
+    }else{
+      setFinished(false);
     }
     let initInfoList = infoList.slice(0, pageSize);
     setDataList(initInfoList)
@@ -59,7 +61,7 @@ const List: React.FC<{}> = props => {
       <Flex.Item >{user.username}</Flex.Item>
 
     </Flex>
-    <ListView onLoad={onLoad} finished={finished} className="list_view" offset={100}>
+    <ListView onLoad={onLoad} finished={finished} className="list_view" offset={100} key={finished+''}>
       {
       dataList.map((item, index) => {
           return (
@@ -140,6 +142,7 @@ const List: React.FC<{}> = props => {
             setDialogVisible(false)
             setValue1('')
             Toast.success('添加成功')
+           
           }
         })
 

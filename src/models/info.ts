@@ -14,65 +14,11 @@ export default () => {
     time:'2012.3.15',
     timeStamp: 123,
     owner:'admin'
-  },
-  {
-    id:'0',
-    content: 'test',
-    time:'2012.3.15',
-    timeStamp: 123,
-    owner:'admin'
-  },{
-    id:'0',
-    content: 'test',
-    time:'2012.3.15',
-    timeStamp: 123,
-    owner:'admin'
-  },{
-    id:'0',
-    content: 'test',
-    time:'2012.3.15',
-    timeStamp: 123,
-    owner:'admin'
-  },{
-    id:'0',
-    content: 'test',
-    time:'2012.3.15',
-    timeStamp: 123,
-    owner:'admin'
-  },{
-    id:'0',
-    content: 'test',
-    time:'2012.3.15',
-    timeStamp: 123,
-    owner:'admin'
-  },{
-    id:'0',
-    content: 'test',
-    time:'2012.3.15',
-    timeStamp: 123,
-    owner:'admin'
-  },{
-    id:'0',
-    content: 'test',
-    time:'2012.3.15',
-    timeStamp: 123,
-    owner:'admin'
-  },{
-    id:'0',
-    content: 'test',
-    time:'2012.3.15',
-    timeStamp: 123,
-    owner:'admin'
-  },{
-    id:'0',
-    content: 'test',
-    time:'2012.3.15',
-    timeStamp: 123,
-    owner:'admin'
-  },
+  }
 ]);
   const Add = (props: infoDTO, callback: Function) => {
         setInfoList([props,...infoList])
+        console.log('%c [ infoList ]-21', 'font-size:13px; background:pink; color:#bf2c9f;', infoList)
         callback(true);
   }
   const del = (props: infoDTO, callback: Function) => {
