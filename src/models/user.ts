@@ -8,17 +8,18 @@ export default () => {
   const [user, setUser] = useState({
     username: 'umi',
     password: '',
-    isLogin: true
+    isLogin: false
   });
 
-  const login = useCallback((props: userDTO, callback: Function) => {
+  const login =(props: userDTO, callback: Function) => {
     if (verity(props)) {
       setUser({ ...props, isLogin: true });
+      console.log('%c [ user ]-18', 'font-size:13px; background:pink; color:#bf2c9f;', user)
       callback(true)
     } else {
       callback(false)
     }
-  }, []);
+  };
   const logout=useCallback(() => {
       setUser({...user,isLogin:false})
   }, []);

@@ -20,8 +20,10 @@ const Root: React.FC<{}> = props => {
         
           login(values,(status:boolean)=>{
               if(status){
-                Toast.success('登录成功')
-                history.replace('/list')
+                setTimeout(()=>{
+                  Toast.success('登录成功')
+                  history.replace('/list')
+                },500)
               }else{
                 Toast.fail('登录失败，用户名或密码错误')
               }
