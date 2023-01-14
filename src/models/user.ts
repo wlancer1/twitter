@@ -8,7 +8,7 @@ export default () => {
   const [user, setUser] = useState({
     username: 'umi',
     password: '',
-    isLogin: false
+    isLogin: true
   });
 
   const login = useCallback((props: userDTO, callback: Function) => {
@@ -19,7 +19,9 @@ export default () => {
       callback(false)
     }
   }, []);
-
+  const logout=useCallback(() => {
+      setUser({...user,isLogin:false})
+  }, []);
   const register = useCallback((props: userDTO,callback: Function) => {
     if(verityRepeat(props)){
       callback(false);
@@ -60,5 +62,5 @@ export default () => {
     }
     return false
   }
-  return { user, login, register };
+  return { user, login, register,logout };
 };

@@ -6,8 +6,6 @@ export interface IRegister{
 }
 const Register: React.FC<IRegister> = props => {
   const [form] = Form.useForm();
-  const [id, setId] = useState<string>();
-  const { user,register } = useModel('user');
   const {handleRegister} =props;
   const onFinish = (values: any) => {
     handleRegister(values)
