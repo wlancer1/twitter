@@ -1,9 +1,22 @@
 @shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
 body{
-  background: #dfe4ee;
+  background: var(--primary-background-color, #dfe4ee);
+}
+//ipad
+@media screen and (min-width: 768px) {
+  .list_view{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 20px;
+  }
+
+
 }
 .container_list{
   padding: 10px;
+  .text_username{
+    color: var(--primary-text-color, #000);
+  }
   .list_view{
     margin-top: 10px;
     .card_item{

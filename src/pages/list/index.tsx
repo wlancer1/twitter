@@ -1,10 +1,11 @@
 import { infoDTO } from "@/models/info"
 import { userDTO } from "@/models/user"
-import { DeleteO, Edit, Plus } from "@react-vant/icons"
+import { DeleteO, Edit, Exchange, Plus } from "@react-vant/icons"
 import moment from "moment"
 import { useEffect, useId, useState } from "react"
-import { ActionSheet, Flex, Image, FloatingBall, Dialog, Field, List as ListView, Card, Toast } from "react-vant"
+import { ActionSheet, Flex, Image, FloatingBall, Dialog, Field, List as ListView, Card, Toast, Popover } from "react-vant"
 import { ActionSheetAction } from "react-vant/es/action-sheet/PropsType"
+import { PopoverAction } from "react-vant/es/popover/PropsType"
 import { useModel, history } from "umi"
 import './style.less'
 const List: React.FC<{}> = props => {
@@ -52,14 +53,35 @@ const List: React.FC<{}> = props => {
     })
     setDataList([...res]);
   }
+  const handleSelect =(action: PopoverAction, index: number) =>{
+    if(index===0){
+      document.body.style.setProperty('--primary-background-color', '#000')
+      document.body.style.setProperty('--primary-text-color', '#fff')
+    }else{
+      document.body.style.setProperty('--primary-text-color', '#000')
+      document.body.style.setProperty('--primary-background-color', '#dfe4ee')
+    }
+   
+  }
   const actions = [{ name: '退出登录' }]
+  const exAction=[{text:'dark' },{text:'white'}]
   return (<div className="container_list">
     <Flex justify="start" align="center" gutter={10}>
       <Flex.Item >
         <Image onClick={() => setVisible(1)} round fit='cover' width='50px' src="https://avatars.githubusercontent.com/u/15881260?v=4" />
       </Flex.Item>
-      <Flex.Item >{user.username}</Flex.Item>
-
+      <Flex.Item className="text_username">{user.username}</Flex.Item>
+      <Flex.Item  flex={1}>
+        <Flex justify="end" align="end">
+        <Popover
+            actions={exAction}
+            placement='left-start'
+            onSelect={handleSelect}
+            reference={ <Exchange color="#3f45ff" style={{fontSize:'20px'}}/>}
+        />
+           
+        </Flex>
+      </Flex.Item>
     </Flex>
     <ListView onLoad={onLoad} finished={finished} className="list_view" offset={100} key={finished+''}>
       {
@@ -75,7 +97,7 @@ const List: React.FC<{}> = props => {
                       {item.time}
                     </Flex.Item>
                   </Flex>
-                  <Flex justify="center" >
+                  {user.username===item.owner&&<Flex justify="center" >
                     <Flex.Item span={12} className='card_op'>
                       <Edit onClick={() => {
                         setDialogVisible(true);
@@ -98,7 +120,7 @@ const List: React.FC<{}> = props => {
                         })
                       }} />
                     </Flex.Item>
-                  </Flex>
+                  </Flex>}
                 </>
               </Card.Footer>
             </Card>
@@ -112,6 +134,9 @@ const List: React.FC<{}> = props => {
       title='推文'
       showCancelButton
       onConfirm={() => {
+        if(value1===''){
+          return;
+        }
         if (detail) {
           let params: infoDTO = {
             ...detail,
