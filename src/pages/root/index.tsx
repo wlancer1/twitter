@@ -10,10 +10,10 @@ const Root: React.FC<{}> = props => {
   const { user,register,login } = useModel('user');
   return (
 
-    <div >
+    <div  className="root_container">
       <Flex direction='row' justify='center' style={{ marginTop: 5 }}>
         <Flex.Item  >
-          <img src={require("../../assets/logo.png")} ></img>
+          <img src={require("../../assets/logo.png")} width="100px" ></img>
         </Flex.Item>
       </Flex>
       {isLogin ? <Login  handleLogin={(values:userDTO)=>{
